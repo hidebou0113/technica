@@ -43,6 +43,9 @@ jobs:
       - name: Run type check
         run: npm run typecheck
 
+      - name: Run tests
+        run: npm run test:run
+
       - name: Build Next.js
         run: npm run build
 
