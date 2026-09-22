@@ -9,6 +9,7 @@ import {
   isNavigationItemActive,
 } from "@/components/layout/navigation";
 import { Separator } from "@/components/ui/separator";
+import { LogoutButton } from "@/features/auth/components/logout-button";
 import { cn } from "@/lib/utils";
 
 export function Sidebar() {
@@ -17,7 +18,7 @@ export function Sidebar() {
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-65 flex-col bg-sidebar text-sidebar-foreground lg:flex">
       <div className="px-6 py-6">
-        <Brand inverse />
+        <Brand inverse href="/dashboard" ariaLabel="Technica ダッシュボード" />
       </div>
       <Separator className="bg-white/10" />
 
@@ -55,18 +56,7 @@ export function Sidebar() {
 
       <div className="p-4">
         <Separator className="mb-4 bg-white/10" />
-        <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
-          <p className="text-sm font-semibold text-white">今日も一歩ずつ</p>
-          <p className="mt-1 text-xs leading-5 text-slate-300">
-            短い復習でも、続けることが知識の定着につながります。
-          </p>
-          <Link
-            href="/reviews"
-            className="mt-3 inline-flex rounded-md text-xs font-semibold text-teal-300 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sidebar-ring/40"
-          >
-            復習ページを見る
-          </Link>
-        </div>
+        <LogoutButton />
       </div>
     </aside>
   );

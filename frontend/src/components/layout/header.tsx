@@ -12,6 +12,7 @@ import {
 } from "@/components/layout/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { LogoutButton } from "@/features/auth/components/logout-button";
 import {
   Sheet,
   SheetContent,
@@ -34,7 +35,7 @@ export function Header({ variant }: HeaderProps) {
     return (
       <header className="sticky top-0 z-40 border-b bg-background/92 backdrop-blur-xl lg:hidden">
         <div className="flex h-16 items-center justify-between px-4 sm:px-6">
-          <Brand />
+          <Brand href="/dashboard" ariaLabel="Technica ダッシュボード" />
 
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
@@ -47,7 +48,11 @@ export function Header({ variant }: HeaderProps) {
               className="w-[min(20rem,88vw)] border-0 bg-sidebar p-0 text-sidebar-foreground"
             >
               <SheetHeader className="border-b border-white/10 px-5 py-5 text-left">
-                <Brand inverse />
+                <Brand
+                  inverse
+                  href="/dashboard"
+                  ariaLabel="Technica ダッシュボード"
+                />
                 <SheetTitle className="sr-only">学習メニュー</SheetTitle>
                 <SheetDescription className="sr-only">
                   Technicaの各学習ページへ移動できます。
@@ -89,9 +94,7 @@ export function Header({ variant }: HeaderProps) {
 
               <div className="p-4 pt-0">
                 <Separator className="mb-4 bg-white/10" />
-                <p className="rounded-xl bg-white/6 px-4 py-3 text-sm leading-6 text-slate-300">
-                  小さな学びを積み重ねて、昨日より一歩先へ。
-                </p>
+                <LogoutButton />
               </div>
             </SheetContent>
           </Sheet>
